@@ -1,6 +1,9 @@
-package com.xenia.retrofit2kotlin.network
+package com.xenia.retrofit2kotlin.network.interfaces
 
 import com.squareup.moshi.Moshi
+import com.xenia.retrofit2kotlin.model.User
+import com.xenia.retrofit2kotlin.network.adapters.DataListJsonAdapter
+import com.xenia.retrofit2kotlin.network.adapters.WrappedUserList
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
@@ -24,7 +27,7 @@ interface UserApiService {
     // so that the return type of the Retrofit function is List<User>
     @GET("users")
     @WrappedUserList
-    suspend fun getUsers(): List<User>
+    suspend fun getOwners(): List<User>
 }
 
 // A public Api object that exposes the lazy-initialized Retrofit service

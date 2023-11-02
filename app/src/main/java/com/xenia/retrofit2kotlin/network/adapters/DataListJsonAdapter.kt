@@ -1,8 +1,10 @@
-package com.xenia.retrofit2kotlin.network
+package com.xenia.retrofit2kotlin.network.adapters
 
 import com.squareup.moshi.FromJson
 import com.squareup.moshi.JsonQualifier
 import com.squareup.moshi.ToJson
+import com.xenia.retrofit2kotlin.model.Data
+import com.xenia.retrofit2kotlin.model.User
 
 @Retention(AnnotationRetention.RUNTIME)
 @JsonQualifier
