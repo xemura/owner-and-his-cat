@@ -1,7 +1,7 @@
 package com.xenia.retrofit2kotlin.network.interfaces
 
 import com.squareup.moshi.Moshi
-import com.xenia.retrofit2kotlin.model.User
+import com.xenia.retrofit2kotlin.model.Owner
 import com.xenia.retrofit2kotlin.network.adapters.DataListJsonAdapter
 import com.xenia.retrofit2kotlin.network.adapters.WrappedUserList
 import retrofit2.Retrofit
@@ -22,15 +22,15 @@ private val retrofit = Retrofit.Builder()
     .addConverterFactory(MoshiConverterFactory.create(moshi))
     .build()
 
-interface UserApiService {
+interface OwnerApiService {
     // @WrappedUserList annotation to unwrap the repository items
     // so that the return type of the Retrofit function is List<User>
     @GET("users")
     @WrappedUserList
-    suspend fun getOwners(): List<User>
+    suspend fun getOwners(): List<Owner>
 }
 
 // A public Api object that exposes the lazy-initialized Retrofit service
-object UserApi {
-    val retrofitService: UserApiService by lazy { retrofit.create(UserApiService::class.java) }
+object OwnerApi {
+    val retrofitService: OwnerApiService by lazy { retrofit.create(OwnerApiService::class.java) }
 }

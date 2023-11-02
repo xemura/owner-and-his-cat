@@ -7,7 +7,7 @@ data class Data(
     val status: String,
     val code: Int,
     val total: Int,
-    val data: List<User>
+    val data: List<Owner>
 )
 
 @JsonClass(generateAdapter = true)
@@ -16,7 +16,7 @@ data class DataCat(
 )
 
 @JsonClass(generateAdapter = true)
-data class User (
+data class Owner (
     @Json(name = "id") val id: String,
     @Json(name = "uuid")  val uuid: String,
     @Json(name = "firstname")  val firstName: String,

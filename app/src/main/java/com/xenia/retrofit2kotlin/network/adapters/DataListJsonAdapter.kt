@@ -4,7 +4,7 @@ import com.squareup.moshi.FromJson
 import com.squareup.moshi.JsonQualifier
 import com.squareup.moshi.ToJson
 import com.xenia.retrofit2kotlin.model.Data
-import com.xenia.retrofit2kotlin.model.User
+import com.xenia.retrofit2kotlin.model.Owner
 
 @Retention(AnnotationRetention.RUNTIME)
 @JsonQualifier
@@ -15,12 +15,12 @@ class DataListJsonAdapter {
     // so that the return type of the Retrofit function is List<User>
     @WrappedUserList
     @FromJson
-    fun fromJson(json: Data) : List<User> {
+    fun fromJson(json: Data) : List<Owner> {
         return json.data
     }
 
     @ToJson
-    fun toJson(@WrappedUserList value: List<User>): Data {
+    fun toJson(@WrappedUserList value: List<Owner>): Data {
         throw UnsupportedOperationException()
     }
 }

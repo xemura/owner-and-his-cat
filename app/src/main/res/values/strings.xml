@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Retrofit2Kotlin</string>
+    <string name="imageOfCat">ImageOfCat</string>
+    <string name="owner">Owner:</string>
 </resources>
