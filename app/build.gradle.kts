@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -48,10 +49,12 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
-    // Retrofit
     val retrofit_version = "2.9.0"
-    implementation ("com.squareup.retrofit2:retrofit:$retrofit_version")
-    implementation ("com.squareup.retrofit2:converter-gson:$retrofit_version")
+    // Retrofit with Moshi Converter
+    implementation ("com.squareup.retrofit2:converter-moshi:$retrofit_version")
+    // Moshi
+    implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
+    ksp("com.squareup.moshi:moshi-kotlin-codegen:1.14.0")
 
     // Coroutines
     val coroutines_version = "1.6.4"
@@ -62,4 +65,5 @@ dependencies {
     val lifecycle_version = "2.6.2"
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+
 }

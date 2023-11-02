@@ -1,25 +1,20 @@
 package com.xenia.retrofit2kotlin.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.xenia.retrofit2kotlin.network.User
-import com.xenia.retrofit2kotlin.network.UserNetwork
+import com.xenia.retrofit2kotlin.network.UserApi
 import kotlinx.coroutines.launch
 
 class MainActivityViewModel : ViewModel() {
-    val myResponse: MutableLiveData<User> = MutableLiveData()
-    val myResponseList: MutableLiveData<List<User>> = MutableLiveData()
+    private var _myResponseList : MutableLiveData<List<User>> = MutableLiveData()
+    val myResponseList: LiveData<List<User>> = _myResponseList
 
-    fun getPost() {
+    fun getUsers() {
         viewModelScope.launch {
-            myResponse.value = UserNetwork.retrofit.getPost()
-        }
-    }
-
-    fun getPosts() {
-        viewModelScope.launch {
-            myResponseList.value = UserNetwork.retrofit.getPosts()
+            _myResponseList.value = UserApi.retrofitService.getUsers()
         }
     }
 }
